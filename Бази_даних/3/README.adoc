@@ -1,0 +1,46 @@
+Солтисюк Дмитро, студент ТУ-12-21-ІПЗ
+
+= Лабораторна робота №3: ОПЕРАТОР INSERT
+
+Тема:: Оператор `INSERT`, ключове слово `NULL` і обмеження цілісності.
+
+Мета:: Виконати різні форми оператора `INSERT`, додаючи записи в схему бази даних Постачальників з використанням різних обмежень цілісності: `AUTOINCREMENT`, `NOT NULL` і `DEFAULT XXX`.
+
+== Виконання
+
+=== Створення таблиці
+
+[source,sql]
+----
+CREATE TABLE Suppliers (
+    SupplierID INT AUTO_INCREMENT PRIMARY KEY,
+    SupplierName VARCHAR(255) NOT NULL,
+    Address VARCHAR(255) DEFAULT 'Unknown'
+);
+----
+
+=== Оператор `INSERT` з обмеженням цілісності `AUTOINCREMENT`
+
+[source,sql]
+----
+INSERT INTO Suppliers (SupplierName, Address) VALUES ('Company A', 'Address 1');
+INSERT INTO Suppliers (SupplierName, Address) VALUES ('Company B', 'Address 2');
+----
+
+=== Оператор `INSERT` з обмеженням цілісності `NOT NULL`
+
+[source,sql]
+----
+INSERT INTO Suppliers (SupplierName, Address) VALUES ('Company C', NULL); -- Помилка: поле "Address" не може бути NULL
+----
+
+=== Оператор `INSERT` з обмеженням цілісності `DEFAULT XXX`
+
+[source,sql]
+----
+INSERT INTO Suppliers (SupplierName) VALUES ('Company D'); -- Значення "Address" буде дефолтованим
+----
+
+== Висновок
+
+У цій лабораторній роботі ми виконали різні форми оператора `INSERT` в базу даних Постачальників, застосовуючи різні обмеження цілісності: `AUTOINCREMENT`, `NOT NULL` і `DEFAULT XXX`. Такі обмеження дозволяють забезпечити правильність та цілісність даних в базі даних.
