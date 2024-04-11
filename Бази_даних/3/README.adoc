@@ -13,7 +13,7 @@
 [source,sql]
 ----
 CREATE TABLE Suppliers (
-    SupplierID INT AUTO_INCREMENT PRIMARY KEY,
+    SupplierID INTEGER PRIMARY KEY AUTOINCREMENT,
     SupplierName VARCHAR(255) NOT NULL,
     Address VARCHAR(255) DEFAULT 'Unknown'
 );
@@ -31,15 +31,19 @@ INSERT INTO Suppliers (SupplierName, Address) VALUES ('Company B', 'Address 2');
 
 [source,sql]
 ----
-INSERT INTO Suppliers (SupplierName, Address) VALUES ('Company C', NULL); -- Помилка: поле "Address" не може бути NULL
+INSERT INTO Suppliers (SupplierName, Address) VALUES (NULL, 'Address 3');
 ----
+Дана команда повинна видати помилку, про нецілісність даних - імʼя не повинно бути порожнім.
 
 === Оператор `INSERT` з обмеженням цілісності `DEFAULT XXX`
 
 [source,sql]
 ----
-INSERT INTO Suppliers (SupplierName) VALUES ('Company D'); -- Значення "Address" буде дефолтованим
+INSERT INTO Suppliers (SupplierName) VALUES ('Company D');
 ----
+По результатам даної команди значення "Address" буде задано за замовчуванням.
+
+image::out.png[]
 
 == Висновок
 

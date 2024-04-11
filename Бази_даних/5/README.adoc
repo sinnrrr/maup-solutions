@@ -17,9 +17,10 @@
 
 [source,csharp]
 ----
-include::Main.cs[]
+include::Program.cs[]
 ----
 
+image::out.png[]
 
 == Висновок
 

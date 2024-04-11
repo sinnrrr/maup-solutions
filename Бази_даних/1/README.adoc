@@ -12,9 +12,6 @@
 {counter:list-counter}. Створення бази даних та таблиці:
 [source,sql]
 ----
-CREATE DATABASE IF NOT EXISTS online_store;
-USE online_store;
-
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(255),
@@ -36,6 +33,8 @@ INSERT INTO products (product_name, price) VALUES
 ----
 SELECT * FROM products;
 ----
+
+image::out.png[]
 
 == Висновок
 
